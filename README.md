@@ -7,7 +7,7 @@
 
 Advent of Code 2022 solutions written in [Rust](https://www.rust-lang.org/) :crab: .
 
-## Advent of Code 2021 Story
+## Advent of Code 2022 Story
 
 
 
