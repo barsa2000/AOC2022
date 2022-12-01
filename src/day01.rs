@@ -1,4 +1,5 @@
 use aoc_runner_derive::{aoc, aoc_generator};
+use itertools::Itertools;
 
 type Parsed = Vec<Vec<u128>>;
 
@@ -17,9 +18,13 @@ fn part1(input: &Parsed) -> u128 {
 
 #[aoc(day1, part2)]
 fn part2(input: &Parsed) -> u128 {
-    let mut sorted: Vec<u128> = input.iter().map(|e| e.iter().sum()).collect();
-    sorted.sort_unstable();
-    sorted.iter().rev().take(3).sum()
+    input
+        .iter()
+        .map(|e| e.iter().sum::<u128>())
+        .sorted()
+        .rev()
+        .take(3)
+        .sum()
 }
 
 #[cfg(test)]
