@@ -1,8 +1,8 @@
 # Advent Of Code 2022
 
 ![](https://img.shields.io/badge/day%20📅-2-blue)
-![](https://img.shields.io/badge/stars%20⭐-2-yellow)
-![](https://img.shields.io/badge/days%20completed-1-red)
+![](https://img.shields.io/badge/stars%20⭐-4-yellow)
+![](https://img.shields.io/badge/days%20completed-2-red)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Advent of Code 2022 solutions written in [Rust](https://www.rust-lang.org/) :crab: .
