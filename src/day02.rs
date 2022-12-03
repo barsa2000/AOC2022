@@ -6,12 +6,12 @@ type Parsed = Vec<(LhsMove, RhsMove)>;
 enum LhsMove {
     Rock,
     Paper,
-    Scissors
+    Scissors,
 }
 enum RhsMove {
     RockOrLose,
     PaperOrDraw,
-    ScissorsOrWin
+    ScissorsOrWin,
 }
 
 #[aoc_generator(day2)]
@@ -24,17 +24,17 @@ fn parse_input(input: &str) -> Parsed {
                 "A" => LhsMove::Rock,
                 "B" => LhsMove::Paper,
                 "C" => LhsMove::Scissors,
-                _ => unreachable!()
+                _ => unreachable!(),
             };
             let rhs = match rhs {
                 "X" => RhsMove::RockOrLose,
                 "Y" => RhsMove::PaperOrDraw,
                 "Z" => RhsMove::ScissorsOrWin,
-                _ => unreachable!()
+                _ => unreachable!(),
             };
             (lhs, rhs)
         })
-    .collect()
+        .collect()
 }
 
 #[aoc(day2, part1)]
@@ -50,22 +50,21 @@ fn part1(input: &Parsed) -> u128 {
             };
             let match_score = match (lhs, rhs) {
                 (LhsMove::Rock, RhsMove::ScissorsOrWin) => 0, // lost
-                (LhsMove::Rock, RhsMove::RockOrLose) => 3, // draw
-                (LhsMove::Rock, RhsMove::PaperOrDraw) => 6, // win
-                
+                (LhsMove::Rock, RhsMove::RockOrLose) => 3,    // draw
+                (LhsMove::Rock, RhsMove::PaperOrDraw) => 6,   // win
+
                 (LhsMove::Paper, RhsMove::PaperOrDraw) => 3, // draw
-                (LhsMove::Paper, RhsMove::RockOrLose) => 0, // lost
+                (LhsMove::Paper, RhsMove::RockOrLose) => 0,  // lost
                 (LhsMove::Paper, RhsMove::ScissorsOrWin) => 6, // win
-                  
+
                 (LhsMove::Scissors, RhsMove::PaperOrDraw) => 0, // lost
-                (LhsMove::Scissors, RhsMove::RockOrLose) => 6, // win
+                (LhsMove::Scissors, RhsMove::RockOrLose) => 6,  // win
                 (LhsMove::Scissors, RhsMove::ScissorsOrWin) => 3, // draw
             };
 
             my_score + match_score
         })
-    .sum()
-    
+        .sum()
 }
 
 #[aoc(day2, part2)]
@@ -75,17 +74,16 @@ fn part2(input: &Parsed) -> usize {
         .map(|(lhs, rhs)| {
             let my_move = match (lhs, rhs) {
                 (LhsMove::Rock, RhsMove::ScissorsOrWin) => RhsMove::PaperOrDraw, // win
-                (LhsMove::Rock, RhsMove::PaperOrDraw) => RhsMove::RockOrLose, // draw
-                (LhsMove::Rock, RhsMove::RockOrLose) => RhsMove::ScissorsOrWin, // lost
-                                              
+                (LhsMove::Rock, RhsMove::PaperOrDraw) => RhsMove::RockOrLose,    // draw
+                (LhsMove::Rock, RhsMove::RockOrLose) => RhsMove::ScissorsOrWin,  // lost
+
                 (LhsMove::Paper, RhsMove::ScissorsOrWin) => RhsMove::ScissorsOrWin, // win
-                (LhsMove::Paper, RhsMove::PaperOrDraw) => RhsMove::PaperOrDraw, // draw
-                (LhsMove::Paper, RhsMove::RockOrLose) => RhsMove::RockOrLose, // lost
-                                               
+                (LhsMove::Paper, RhsMove::PaperOrDraw) => RhsMove::PaperOrDraw,     // draw
+                (LhsMove::Paper, RhsMove::RockOrLose) => RhsMove::RockOrLose,       // lost
+
                 (LhsMove::Scissors, RhsMove::ScissorsOrWin) => RhsMove::RockOrLose, // win
                 (LhsMove::Scissors, RhsMove::PaperOrDraw) => RhsMove::ScissorsOrWin, // draw
-                (LhsMove::Scissors, RhsMove::RockOrLose) => RhsMove::PaperOrDraw, // lost
-                
+                (LhsMove::Scissors, RhsMove::RockOrLose) => RhsMove::PaperOrDraw,   // lost
             };
             let my_score = match my_move {
                 RhsMove::RockOrLose => 1,
@@ -102,7 +100,7 @@ fn part2(input: &Parsed) -> usize {
 
             my_score + match_score
         })
-    .sum()
+        .sum()
 }
 
 #[cfg(test)]
