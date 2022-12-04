@@ -22,3 +22,4 @@ Advent of Code 2022 solutions written in [Rust](https://www.rust-lang.org/) :cra
 | [Day 1: Calorie Counting](https://adventofcode.com/2022/day/1)        | [day01.rs](src/day01.rs) |  ✓  | **72718** |  ✓  | **213089** |
 | [Day 2: Rock Paper Scissors](https://adventofcode.com/2022/day/2)     | [day02.rs](src/day02.rs) |  ✓  | **12156** |  ✓  |  **10835** |
 | [Day 3: Rucksack Reorganization](https://adventofcode.com/2022/day/3) | [day03.rs](src/day03.rs) |  ✓  |  **8349** |  ✓  |   **2681** |
+| [Day 4: Camp Cleanup](https://adventofcode.com/2022/day/4)            | [day04.rs](src/day04.rs) |  ✓  |   **507** |  ✓  |    **897** |
