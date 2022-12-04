@@ -9,7 +9,7 @@ fn parse_input(input: &str) -> Parsed {
         .lines()
         .map(|l| {
             let (a0, a1, b0, b1) = scan_fmt!(l, "{}-{},{}-{}", u128, u128, u128, u128).unwrap();
-            ((a0,a1), (b0,b1))
+            ((a0, a1), (b0, b1))
         })
         .collect()
 }
@@ -18,10 +18,7 @@ fn parse_input(input: &str) -> Parsed {
 fn part1(input: &Parsed) -> usize {
     input
         .iter()
-        .filter(|(a, b)| {
-            (a.0 >= b.0 && a.1 <= b.1)
-                || (b.0 >= a.0 && b.1 <= a.1)
-        })
+        .filter(|(a, b)| (a.0 >= b.0 && a.1 <= b.1) || (b.0 >= a.0 && b.1 <= a.1))
         .count()
 }
 
@@ -29,10 +26,7 @@ fn part1(input: &Parsed) -> usize {
 fn part2(input: &Parsed) -> usize {
     input
         .iter()
-        .filter(|(a, b)| {
-            !(a.0 > b.1 || a.1 < b.0)
-                || (b.0 <= a.1 && b.1 >= a.0)
-        })
+        .filter(|(a, b)| !(a.0 > b.1 || a.1 < b.0) || (b.0 <= a.1 && b.1 >= a.0))
         .count()
 }
 
