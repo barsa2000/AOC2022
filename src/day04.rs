@@ -1,7 +1,7 @@
 use aoc_runner_derive::{aoc, aoc_generator};
 use scan_fmt::scan_fmt;
 
-type Parsed = Vec<(Vec<u128>, Vec<u128>)>;
+type Parsed = Vec<((u128, u128), (u128, u128))>;
 
 #[aoc_generator(day4)]
 fn parse_input(input: &str) -> Parsed {
@@ -9,7 +9,7 @@ fn parse_input(input: &str) -> Parsed {
         .lines()
         .map(|l| {
             let (a0, a1, b0, b1) = scan_fmt!(l, "{}-{},{}-{}", u128, u128, u128, u128).unwrap();
-            ((a0..a1 + 1).collect(), (b0..b1 + 1).collect())
+            ((a0,a1), (b0,b1))
         })
         .collect()
 }
@@ -19,8 +19,8 @@ fn part1(input: &Parsed) -> usize {
     input
         .iter()
         .filter(|(a, b)| {
-            (a.first() >= b.first() && a.last() <= b.last())
-                || (b.first() >= a.first() && b.last() <= a.last())
+            (a.0 >= b.0 && a.1 <= b.1)
+                || (b.0 >= a.0 && b.1 <= a.1)
         })
         .count()
 }
@@ -30,8 +30,8 @@ fn part2(input: &Parsed) -> usize {
     input
         .iter()
         .filter(|(a, b)| {
-            (a.first() <= b.last() && a.last() >= b.first())
-                || (b.first() <= a.last() && b.last() >= a.first())
+            !(a.0 > b.1 || a.1 < b.0)
+                || (b.0 <= a.1 && b.1 >= a.0)
         })
         .count()
 }
