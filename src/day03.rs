@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 use aoc_runner_derive::{aoc, aoc_generator};
 
 type Parsed = Vec<String>;
@@ -34,10 +32,8 @@ fn calc_priority(a: char) -> usize {
     }
 }
 fn find_common(s: Vec<&str>) -> char {
-    let sets: Vec<HashSet<char>> = s.iter().skip(1).map(|s| s.chars().collect()).collect();
-
     s[0].chars()
-        .find(|c| sets.iter().all(|s| s.contains(c)))
+        .find(|c| s.iter().skip(1).all(|s| s.contains(*c)))
         .unwrap()
 }
 
