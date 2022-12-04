@@ -1,4 +1,5 @@
 use aoc_runner_derive::{aoc, aoc_generator};
+use scan_fmt::scan_fmt;
 
 type Parsed = Vec<(Vec<u128>, Vec<u128>)>;
 
@@ -7,17 +8,8 @@ fn parse_input(input: &str) -> Parsed {
     input
         .lines()
         .map(|l| {
-            let mut elves = l.split(',');
-            let a = elves.next().unwrap();
-            let b = elves.next().unwrap();
-
-            let a: Vec<&str> = a.split('-').collect();
-            let b: Vec<&str> = b.split('-').collect();
-
-            (
-                (a[0].parse().unwrap()..a[1].parse::<u128>().unwrap() + 1_u128).collect(),
-                (b[0].parse().unwrap()..b[1].parse::<u128>().unwrap() + 1_u128).collect(),
-            )
+            let (a0, a1, b0, b1) = scan_fmt!(l, "{}-{},{}-{}", u128, u128, u128, u128).unwrap();
+            ((a0..a1 + 1).collect(), (b0..b1 + 1).collect())
         })
         .collect()
 }
