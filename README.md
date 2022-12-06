@@ -24,3 +24,4 @@ Advent of Code 2022 solutions written in [Rust](https://www.rust-lang.org/) :cra
 | [Day 3: Rucksack Reorganization](https://adventofcode.com/2022/day/3) | [day03.rs](src/day03.rs) |  ✓  |      **8349** |  ✓  |      **2681** |
 | [Day 4: Camp Cleanup](https://adventofcode.com/2022/day/4)            | [day04.rs](src/day04.rs) |  ✓  |       **507** |  ✓  |       **897** |
 | [Day 5: Supply Stacks](https://adventofcode.com/2022/day/5)           | [day05.rs](src/day05.rs) |  ✓  | **WCZTHTMPS** |  ✓  | **BLSGJSDTS** |
+| [Day 6: Tuning Trouble](https://adventofcode.com/2022/day/6)          | [day06.rs](src/day06.rs) |  ✓  |      **1794** |  ✓  |      **2851** |
