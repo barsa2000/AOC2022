@@ -1,6 +1,6 @@
 # Advent Of Code 2022
 
-![](https://img.shields.io/badge/day%20📅-17-blue)
+![](https://img.shields.io/badge/day%20📅-18-blue)
 ![](https://img.shields.io/badge/stars%20⭐-17-yellow)
 ![](https://img.shields.io/badge/days%20completed-8-red)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
